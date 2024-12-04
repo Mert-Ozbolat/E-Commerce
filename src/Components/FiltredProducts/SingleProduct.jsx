@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { Tooltip, Button } from "@material-tailwind/react";
+import { addToCart } from "../../features/slice/cartSlice";
+
 
 const SingleProduct = () => {
     const product = useSelector((state) => state.products.singleProduct);
@@ -11,6 +13,7 @@ const SingleProduct = () => {
     const [color, setColor] = useState(productColor);
 
     const { id } = useParams();
+    const dispatch = useDispatch();
 
     return (
         <div>
